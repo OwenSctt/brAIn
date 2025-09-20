@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { UserMenu } from "@/components/user-menu"
 import { cn } from "@/lib/utils"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -33,7 +33,12 @@ const mockUserData = {
 
 export function Sidebar() {
   const [userData] = useState(mockUserData)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
   const levelProgress = ((userData.xp % 100) / 100) * 100
   const xpToNext = userData.next_level_xp - (userData.xp % 100)
@@ -45,14 +50,14 @@ export function Sidebar() {
           <div className="h-8 w-8 rounded-lg bg-sidebar-primary flex items-center justify-center">
             <Zap className="h-5 w-5 text-sidebar-primary-foreground" />
           </div>
-          <span className="text-lg font-semibold text-sidebar-foreground">br<span className="text-sidebar-primary">A</span>In</span>
+              <span className="text-lg font-semibold text-sidebar-foreground">BR<span className="text-sidebar-primary">AI</span>N</span>
         </div>
         <UserMenu />
       </div>
 
       <nav className="flex-1 px-4 py-6 space-y-2">
         {navigation.map((item) => {
-          const isActive = pathname === item.href
+          const isActive = mounted && pathname === item.href
           return (
             <Link key={item.name} href={item.href}>
               <Button

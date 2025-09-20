@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -43,7 +43,12 @@ const quickNav = [
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -66,14 +71,14 @@ export function Header() {
               <Zap className="h-5 w-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold text-foreground">
-              br<span className="text-primary">A</span>In
+              BR<span className="text-primary">AI</span>N
             </span>
           </Link>
 
           {/* Quick Navigation - Desktop */}
           <nav className="hidden md:flex items-center space-x-1">
             {quickNav.map((item) => {
-              const isActive = pathname === item.href
+              const isActive = mounted && pathname === item.href
               return (
                 <Link key={item.name} href={item.href}>
                   <Button
