@@ -45,13 +45,7 @@ export function Sidebar() {
 
   return (
     <div className="flex h-screen w-64 flex-col bg-sidebar border-r border-sidebar-border">
-      <div className="flex h-16 items-center justify-between px-6 border-b border-sidebar-border">
-        <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-sidebar-primary flex items-center justify-center">
-            <Zap className="h-5 w-5 text-sidebar-primary-foreground" />
-          </div>
-              <span className="text-lg font-semibold text-sidebar-foreground">BR<span className="text-sidebar-primary">AI</span>N</span>
-        </div>
+      <div className="flex h-16 items-center justify-end px-6 border-b border-sidebar-border">
         <UserMenu />
       </div>
 
