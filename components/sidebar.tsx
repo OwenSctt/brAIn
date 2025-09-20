@@ -7,16 +7,18 @@ import { Progress } from "@/components/ui/progress"
 import { UserMenu } from "@/components/user-menu"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: Home, current: true },
-  { name: "Learning Modules", href: "/modules", icon: BookOpen, current: false },
-  { name: "AI Playground", href: "/playground", icon: Brain, current: false },
-  { name: "AI Tools", href: "/ai-tools", icon: Code, current: false },
-  { name: "Achievements", href: "/achievements", icon: Trophy, current: false },
-  { name: "Community", href: "/community", icon: Users, current: false },
-  { name: "Profile", href: "/profile", icon: User, current: false },
-  { name: "Settings", href: "/settings", icon: Settings, current: false },
+  { name: "Dashboard", href: "/", icon: Home },
+  { name: "Learning Modules", href: "/modules", icon: BookOpen },
+  { name: "AI Playground", href: "/playground", icon: Brain },
+  { name: "AI Tools", href: "/ai-tools", icon: Code },
+  { name: "Achievements", href: "/achievements", icon: Trophy },
+  { name: "Community", href: "/community", icon: Users },
+  { name: "Profile", href: "/profile", icon: User },
+  { name: "Settings", href: "/settings", icon: Settings },
 ]
 
 // Mock user data
@@ -31,6 +33,7 @@ const mockUserData = {
 
 export function Sidebar() {
   const [userData] = useState(mockUserData)
+  const pathname = usePathname()
   
   const levelProgress = ((userData.xp % 100) / 100) * 100
   const xpToNext = userData.next_level_xp - (userData.xp % 100)
@@ -48,31 +51,35 @@ export function Sidebar() {
       </div>
 
       <nav className="flex-1 px-4 py-6 space-y-2">
-        {navigation.map((item) => (
-          <Button
-            key={item.name}
-            variant={item.current ? "default" : "ghost"}
-            className={cn(
-              "w-full justify-start gap-3 h-11",
-              item.current
-                ? "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-            )}
-          >
-            <item.icon className="h-5 w-5" />
-            {item.name}
-            {item.name === "Achievements" && userData.achievements_count > 0 && (
-              <Badge variant="secondary" className="ml-auto text-xs">
-                {userData.achievements_count}
-              </Badge>
-            )}
-            {item.name === "Community" && userData.community_notifications > 0 && (
-              <Badge variant="destructive" className="ml-auto text-xs">
-                {userData.community_notifications}
-              </Badge>
-            )}
-          </Button>
-        ))}
+        {navigation.map((item) => {
+          const isActive = pathname === item.href
+          return (
+            <Link key={item.name} href={item.href}>
+              <Button
+                variant={isActive ? "default" : "ghost"}
+                className={cn(
+                  "w-full justify-start gap-3 h-11",
+                  isActive
+                    ? "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary/90"
+                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                )}
+              >
+                <item.icon className="h-5 w-5" />
+                {item.name}
+                {item.name === "Achievements" && userData.achievements_count > 0 && (
+                  <Badge variant="secondary" className="ml-auto text-xs">
+                    {userData.achievements_count}
+                  </Badge>
+                )}
+                {item.name === "Community" && userData.community_notifications > 0 && (
+                  <Badge variant="destructive" className="ml-auto text-xs">
+                    {userData.community_notifications}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
+          )
+        })}
       </nav>
 
       <div className="p-4 border-t border-sidebar-border">
