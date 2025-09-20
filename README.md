@@ -186,37 +186,6 @@ ANTHROPIC_API_KEY=your_anthropic_key
 ### Tailwind CSS
 The project uses Tailwind CSS v4 with custom CSS variables for theming. The color scheme is defined in `app/globals.css`.
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Set up environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
-
-### Other Platforms
-The app can be deployed to any platform that supports Next.js:
-- Netlify
-- Railway
-- DigitalOcean App Platform
-- AWS Amplify
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our contributing guidelines:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow TypeScript best practices
-- Write tests for new features
-- Use conventional commit messages
-- Ensure responsive design
-- Test across different browsers
-
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -228,24 +197,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Tailwind CSS** - Utility-first CSS framework
 - **Radix UI** - Low-level UI primitives
 - **Lucide React** - Beautiful & consistent icon toolkit
-
-## 📞 Support
-
-- **Issues**: [GitHub Issues](https://github.com/OwenSctt/brAIn/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/OwenSctt/brAIn/discussions)
-- **Email**: [Contact Support](mailto:support@brain-learning.app)
-
-## 🗺️ Roadmap
-
-### Upcoming Features
-- [ ] Mobile app (React Native)
-- [ ] Advanced analytics dashboard
-- [ ] Custom learning paths
-- [ ] AI-powered recommendations
-- [ ] Offline learning mode
-- [ ] Multi-language support
-- [ ] Enterprise features
-- [ ] API for third-party integrations
 
 ---
 
