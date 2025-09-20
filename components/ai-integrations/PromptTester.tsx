@@ -273,7 +273,7 @@ export default function PromptTester({
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                {models.map((model) => (
+                {(models || []).map((model) => (
                   <div
                     key={model.id}
                     className={`p-3 rounded-lg border cursor-pointer transition-colors ${
@@ -401,7 +401,7 @@ export default function PromptTester({
                 </Card>
               ) : (
                 <div className="space-y-4">
-                  {testResults.map((result, index) => (
+                  {(testResults || []).map((result, index) => (
                     <Card key={index} className={result.success ? '' : 'border-red-200'}>
                       <CardHeader>
                         <div className="flex items-center justify-between">
@@ -486,7 +486,7 @@ export default function PromptTester({
                           </tr>
                         </thead>
                         <tbody>
-                          {testResults.map((result, index) => (
+                          {(testResults || []).map((result, index) => (
                             <tr key={index} className="border-b">
                               <td className="p-2 font-medium">{result.modelName}</td>
                               <td className="p-2">{result.response.length} chars</td>
@@ -544,7 +544,7 @@ export default function PromptTester({
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      {testResults.map((result, index) => (
+                      {(testResults || []).map((result, index) => (
                         <div key={index} className="flex items-center justify-between">
                           <span className="text-sm">{result.modelName}</span>
                           <div className="flex items-center space-x-2">

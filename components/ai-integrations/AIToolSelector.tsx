@@ -94,7 +94,7 @@ export default function AIToolSelector({
 }: AIToolSelectorProps) {
   const [activeTab, setActiveTab] = useState('all');
 
-  const filteredTools = tools.filter(tool => {
+  const filteredTools = (tools || []).filter(tool => {
     if (activeTab === 'all') return true;
     return tool.provider === activeTab;
   });
@@ -192,7 +192,7 @@ export default function AIToolSelector({
                   <div>
                     <h4 className="text-sm font-medium mb-2">Available Models</h4>
                     <div className="space-y-2">
-                      {tool.models.slice(0, 3).map((model) => (
+                      {(tool.models || []).slice(0, 3).map((model) => (
                         <div 
                           key={model.id}
                           className={`p-2 rounded border ${
@@ -233,7 +233,7 @@ export default function AIToolSelector({
                   <div>
                     <h4 className="text-sm font-medium mb-2">Key Features</h4>
                     <div className="flex flex-wrap gap-1">
-                      {tool.features.slice(0, 3).map((feature, index) => (
+                      {(tool.features || []).slice(0, 3).map((feature, index) => (
                         <Badge key={index} variant="outline" className="text-xs">
                           {feature}
                         </Badge>
@@ -381,7 +381,7 @@ export function ModelComparison({
               </tr>
             </thead>
             <tbody>
-              {models.map((model) => (
+              {(models || []).map((model) => (
                 <tr key={model.id} className="border-b">
                   <td className="p-2 font-medium">{model.name}</td>
                   <td className="p-2">
