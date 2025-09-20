@@ -6,7 +6,7 @@ import { Trophy, Target, Zap } from "lucide-react"
 
 export default function AchievementsPage() {
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex min-h-[calc(100vh-4rem)] bg-background">
       <div className="flex-1 p-8 space-y-8">
         {/* Header */}
         <div className="space-y-2">

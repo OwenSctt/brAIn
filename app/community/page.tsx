@@ -7,7 +7,7 @@ import { Plus, Search } from "lucide-react"
 
 export default function CommunityPage() {
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex min-h-[calc(100vh-4rem)] bg-background">
       <div className="flex-1 p-8 space-y-8">
         {/* Header */}
         <div className="space-y-4">

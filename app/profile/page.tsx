@@ -34,7 +34,8 @@ export default async function ProfilePage() {
   const xpProgress = (currentXP % 1000) / 10
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="flex min-h-[calc(100vh-4rem)] bg-background">
+      <div className="flex-1 container mx-auto p-6 space-y-6">
       <div className="flex items-center gap-4 mb-8">
         <Avatar className="h-20 w-20">
           <AvatarImage src={profile?.avatar_url || "/placeholder.svg"} />
@@ -128,6 +129,7 @@ export default async function ProfilePage() {
           </CardContent>
         </Card>
       )}
+      </div>
     </div>
   )
 }
