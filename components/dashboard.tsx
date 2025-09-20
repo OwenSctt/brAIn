@@ -37,7 +37,7 @@ const mockUserData = {
       description: "Completed 10 prompting exercises",
       category: "learning",
       xp_reward: 100,
-      earned_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000)
+      earned_at: new Date("2024-09-18T10:30:00Z")
     },
     {
       id: "achievement-2", 
@@ -45,7 +45,7 @@ const mockUserData = {
       description: "Completed 3 modules in one day",
       category: "milestone",
       xp_reward: 200,
-      earned_at: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000)
+      earned_at: new Date("2024-09-15T14:20:00Z")
     },
     {
       id: "achievement-3",
@@ -53,26 +53,26 @@ const mockUserData = {
       description: "Helped 5 fellow learners",
       category: "community",
       xp_reward: 150,
-      earned_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
+      earned_at: new Date("2024-09-13T09:15:00Z")
     }
   ],
   recent_activities: [
     {
       type: "lesson_completion",
       points: 50,
-      timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000),
+      timestamp: new Date("2024-09-19T22:30:00Z"),
       description: "Completed: Context Management in Prompts"
     },
     {
       type: "module_completion", 
       points: 200,
-      timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000),
+      timestamp: new Date("2024-09-19T20:30:00Z"),
       description: "Completed: Basic Prompting Fundamentals"
     },
     {
       type: "community_post",
       points: 25,
-      timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000),
+      timestamp: new Date("2024-09-19T18:30:00Z"),
       description: "Shared a helpful prompt template"
     }
   ],
