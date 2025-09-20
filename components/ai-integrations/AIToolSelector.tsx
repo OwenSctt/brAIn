@@ -130,7 +130,7 @@ export default function AIToolSelector({
         </div>
         <div className="flex items-center space-x-2">
           <Badge variant="outline">
-            {tools.filter(t => t.status === 'available').length} Available
+            {(tools || []).filter(t => t.status === 'available' || t.isAvailable).length} Available
           </Badge>
         </div>
       </div>

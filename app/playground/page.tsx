@@ -214,7 +214,6 @@ export default function PlaygroundPage() {
                 onPromptSubmit={handlePromptSubmit}
                 onProgressUpdate={handleProgressUpdate}
                 onComplete={handleComplete}
-                onSettingsOpen={handleSettingsOpen}
                 initialPrompt={mockScenarios[selectedScenario]}
                 scenarios={mockScenarios}
                 showHints={true}
